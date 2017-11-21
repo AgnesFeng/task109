@@ -72,7 +72,7 @@ module.exports =
      freePrint(loadPromotions())+'\n'+
     '----------------------\n' +
     '总计：'+ sum.toFixed(2) +'(元)\n' +
-    '节省：'+ cutPrice+ '(元)\n' +
+    '节省：'+ cutPrice.toFixed(2)+ '(元)\n' +
     '**********************');
     return 0;
 };
