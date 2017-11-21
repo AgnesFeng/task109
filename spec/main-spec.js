@@ -1,11 +1,16 @@
-const main = require('../main/main');
-
+const printInventory = require('../main/main');
+//const loadPromotions = require('../main/datbase');
+const loadAll= require('../main/datbase');
 describe('pos', function () {
     var allItems;
+
     var inputs;
 
+
     beforeEach(function () {
-        allItems = loadAllItems();
+        allItems = loadAll;
+        //free = loadPromotions;
+
         inputs = [
             'ITEM000001',
             'ITEM000001',
@@ -23,7 +28,7 @@ describe('pos', function () {
 
         spyOn(console, 'log');
 
-        printInventory(inputs);
+        printInventory(inputs); //要实现的函数
 
         var expectText =
             '***<没钱赚商店>购物清单***\n' +
@@ -38,7 +43,7 @@ describe('pos', function () {
             '总计：51.00(元)\n' +
             '节省：7.50(元)\n' +
             '**********************';
-
+            //"名称：" + [mingzi] "，数量:" + [num] + [单位名称] + ",单价：" + [danjia] + "(元)，小计："+ [总价]+"(元)\n"
         expect(console.log).toHaveBeenCalledWith(expectText);
     });
 });
